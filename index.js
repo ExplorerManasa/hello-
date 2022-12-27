@@ -1,10 +1,11 @@
- const express=require("express")
+const express=require("express")
 const app=express()
-const port=4000;
+const port=3005;
 const cors=require("cors")
 const bodyParser=require("body-parser")
 const mongoose=require("mongoose")
 const Register=require("./registerSchema.js")
+
 app.use(bodyParser.urlencoded({
 	extended:true 
 }))
@@ -27,11 +28,15 @@ app.get("/",(req,res)=>{
 	})
 app.post("/newData",(req,res)=>{
 	const {username,password}=req.body
+	console.log(username,password)
+	res.send("added")
 	const newFrontendUser=new Register({
 		username:username,
 		password:password
 	})
+	 
 	newFrontendUser.save()
 })	
+
 
 app.listen(port,()=>console.log("server is running on port", port))

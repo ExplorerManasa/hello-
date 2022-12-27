@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
 </head>
 <body>
-	 <script type="text/javascript">
-		function submit(){
-			var name=document.getElementById("name").value
-			console.log(name)
-			var password=document.getElementById("password").value
-			console.log(password)	
-		
-		fetch("http://localhost:4000/newData",{
-			method:"POST",
-			headers:{
-				"Content-Type":"application/json"
-			},
-			body:JSON.stringify({username:name,password:password})
-		})
-		.then((res)=>{
-			console.log(res)
-			if(res.status===200)
-				alert("registration successfull")
-		})
-		.catch((err)=>{
-			alert(err)
-		})
-	}
-	</script>
-	<input id="name" placeholder="enter your name" /></br>
+   <script type="text/javascript">
+    function submit(){
+      var name=document.getElementById("name").value
+      console.log(name)
+      var password=document.getElementById("password").value
+      console.log(password) 
+    
+    fetch("http://localhost:3005/newData",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({username:name,password:password})
+    })
+    .then((res)=>{
+      console.log(res)
+      if(res.status===200)
+        alert("registration successfull")
+    })
+    .catch((err)=>{
+      alert(err)
+    })
+  }
+  </script>
+  <input id="name" placeholder="enter your name" /></br>
     <input id="password" placeholder="enter password"/></br>
     <button onclick="submit()">Submit</button>
-	</body>
+  </body>
 </html>
